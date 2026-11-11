@@ -1,0 +1,895 @@
+[
+  {
+    "q": "1.1",
+    "title": "Group information",
+    "need": "All three members confirm the group number, leader, member names, and experiment date.",
+    "deliver": "Enter the group number, leader, all member names, date, and full lab title. Leave unknown information pending confirmation.",
+    "nodes": [
+      [
+        0,
+        4,
+        "Q_{1.1}"
+      ],
+      [
+        -3,
+        1,
+        "\\mathrm{Group,\\ leader}"
+      ],
+      [
+        3,
+        1,
+        "\\mathrm{Names,\\ date,\\ title}"
+      ]
+    ],
+    "edges": [
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ]
+    ]
+  },
+  {
+    "q": "3.1",
+    "title": "RC Setup photograph",
+    "need": "Wire the circuit shown in the instructions. Connect CH1 to Vin and CH2 to Vout; verify the common ground.",
+    "deliver": "Provide an actual breadboard photograph showing components, input, output, and ground connections. An oscilloscope screenshot does not replace this photograph.",
+    "nodes": [
+      [
+        0,
+        6,
+        "Q_{3.1}:\\ \\mathrm{photo}"
+      ],
+      [
+        0,
+        3,
+        "\\mathrm{CH1}=V_{in},\\ \\mathrm{CH2}=V_{out}"
+      ],
+      [
+        -3,
+        0,
+        "R=1000\\,\\Omega,\\ C=0.22\\,\\mu\\mathrm F"
+      ],
+      [
+        3,
+        0,
+        "\\mathrm{circuit,\\ ground}"
+      ]
+    ],
+    "edges": [
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        3,
+        1
+      ]
+    ]
+  },
+  {
+    "q": "3.2",
+    "title": "RC Filter classification",
+    "need": "Locate the output element, then evaluate the low-frequency and high-frequency limits.",
+    "deliver": "Low-pass: at low frequency the capacitor approaches an open circuit and Vout approaches Vin; at high frequency it approaches a short circuit and Vout approaches zero.",
+    "nodes": [
+      [
+        0,
+        6,
+        "\\mathrm{low\\ pass}"
+      ],
+      [
+        -3,
+        3,
+        "H(0)=1"
+      ],
+      [
+        3,
+        3,
+        "H(\\infty)=0"
+      ],
+      [
+        0,
+        0,
+        "Z_C=1/(j\\omega C),\\quad V_{out}=V_C"
+      ]
+    ],
+    "edges": [
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ]
+    ]
+  },
+  {
+    "q": "3.3",
+    "title": "RC Transfer function derivation",
+    "need": "Start with the series voltage divider. Derive H, the cutoff angular frequency, the magnitude, and the phase.",
+    "deliver": "Show the voltage divider, algebraic simplification, |H|, arg H, and omega_c.",
+    "nodes": [
+      [
+        0,
+        9,
+        "|H|,\\ \\arg H,\\ \\omega_c=1/(RC)"
+      ],
+      [
+        0,
+        6,
+        "H(j\\omega)=1/(1+j\\omega RC)"
+      ],
+      [
+        0,
+        3,
+        "H=Z_C/(R+Z_C)"
+      ],
+      [
+        -3,
+        0,
+        "Z_C=1/(j\\omega C)"
+      ],
+      [
+        3,
+        0,
+        "R,\\ \\omega"
+      ]
+    ],
+    "edges": [
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        4,
+        2
+      ]
+    ]
+  },
+  {
+    "q": "3.4",
+    "title": "RC Numerical expressions in Hz",
+    "need": "Use Q3.3 and the component values in the original schematic. Substitute omega = 2 pi f.",
+    "deliver": "Provide numerical expressions for magnitude and phase, and the ideal cutoff frequency: 723.43 Hz.",
+    "nodes": [
+      [
+        0,
+        6,
+        "|H(f)|,\\ \\arg H(f),\\ f_c=\\omega_c/(2\\pi)"
+      ],
+      [
+        -3,
+        3,
+        "H(j\\omega),\\ \\omega_c\\quad(Q_{3.3})"
+      ],
+      [
+        3,
+        3,
+        "\\omega=2\\pi f"
+      ],
+      [
+        0,
+        0,
+        "R=1000\\,\\Omega,\\ C=0.22\\,\\mu\\mathrm F"
+      ]
+    ],
+    "edges": [
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        1
+      ]
+    ]
+  },
+  {
+    "q": "3.5",
+    "title": "RC Hand-drawn Bode plots",
+    "need": "Use Q3.3 and the cutoff frequency from Q3.4 to label the frequency axis in Hz.",
+    "deliver": "Draw magnitude and phase by hand. Label fc, -3.01 dB, the cutoff phase, and asymptotes. Include your own hand-drawn work.",
+    "nodes": [
+      [
+        0,
+        6,
+        "G(f),\\ \\phi(f)\\quad\\mathrm{hand\\ sketch}"
+      ],
+      [
+        -3,
+        3,
+        "G=20\\log_{10}|H|"
+      ],
+      [
+        3,
+        3,
+        "\\phi=\\arg H"
+      ],
+      [
+        0,
+        0,
+        "H(j\\omega),\\ f_c\\quad(Q_{3.3},Q_{3.4})"
+      ]
+    ],
+    "edges": [
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ]
+    ]
+  },
+  {
+    "q": "3.6",
+    "title": "RC Measured frequency sweep",
+    "need": "Complete the setup in Q3.1. Start with a 2 Vpp, 1 kHz sine wave, then measure all 11 required frequencies. Add points near cutoff.",
+    "deliver": "For every point, record actual frequency, Vin/Vout in VRMS and Vpp, cursor time difference, phase, and gain. Save a full-screen capture with measurements and cursors visible. Report the measured half-power frequency and stopband slope. Place RC captures in Appendix B.",
+    "nodes": [
+      [
+        0,
+        9,
+        "Q_{3.6}:\\ G,\\phi,f_c,m"
+      ],
+      [
+        -3,
+        6,
+        "G=20\\log_{10}(V_{out,rms}/V_{in,rms})"
+      ],
+      [
+        3,
+        6,
+        "\\phi=-360f\\Delta t"
+      ],
+      [
+        0,
+        3,
+        "f,V_{in,rms},V_{out,rms},V_{pp},\\Delta t"
+      ],
+      [
+        0,
+        0,
+        "Q_{3.1},\\ 2\\,V_{pp},\\ 10\\,Hz\\leq f\\leq20\\,kHz"
+      ]
+    ],
+    "edges": [
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        4,
+        3
+      ]
+    ]
+  },
+  {
+    "q": "3.7",
+    "title": "RC Experimental Bode plots in Excel",
+    "need": "Complete the measured data in Q3.6 first. Use experimental values for these plots.",
+    "deliver": "Use Excel to create gain in dB and phase in degrees versus frequency. Use a logarithmic numeric frequency axis and label the measured cutoff.",
+    "nodes": [
+      [
+        0,
+        6,
+        "G(f),\\ \\phi(f),\\ f_c\\quad\\mathrm{Excel}"
+      ],
+      [
+        -3,
+        3,
+        "(f,G)"
+      ],
+      [
+        3,
+        3,
+        "(f,\\phi)"
+      ],
+      [
+        0,
+        0,
+        "Q_{3.6}:\\ \\mathrm{measured\\ data}"
+      ]
+    ],
+    "edges": [
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ]
+    ]
+  },
+  {
+    "q": "3.8",
+    "title": "RC LTspice AC simulation",
+    "need": "Build a separate simulation from the original schematic. This can proceed in parallel with measurements; verify matching component values.",
+    "deliver": "Use a source with AC amplitude 1 and .ac dec 100 10 20k. Display dB(V(out)/V(in)) and the phase of V(out)/V(in). Save the circuit, settings, and result captures.",
+    "nodes": [
+      [
+        0,
+        6,
+        "G_{sim}(f),\\ \\phi_{sim}(f)"
+      ],
+      [
+        0,
+        3,
+        "H_{sim}=V(out)/V(in)"
+      ],
+      [
+        -3,
+        0,
+        "R=1000\\,\\Omega,\\ C=0.22\\,\\mu\\mathrm F"
+      ],
+      [
+        3,
+        0,
+        "AC=1,\\ \\mathrm{.ac\\ dec\\ 100\\ 10\\ 20k}"
+      ]
+    ],
+    "edges": [
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        3,
+        1
+      ]
+    ]
+  },
+  {
+    "q": "3.9",
+    "title": "RC Theory simulation and measurement comparison",
+    "need": "Combine Q3.3 through Q3.8. Compare magnitude, phase, cutoff frequency, and stopband trends.",
+    "deliver": "Compare all three results and explain differences. The instructions explicitly require theoretical and measured magnitude curves on the same Excel chart. Also check phase. Treat proposed nonideal effects as hypotheses supported by evidence.",
+    "nodes": [
+      [
+        0,
+        9,
+        "Q_{3.9}:\\ \\Delta G,\\Delta\\phi,\\Delta f_c"
+      ],
+      [
+        -3.5,
+        6,
+        "H_{theory}\\ (Q_{3.3-3.5})"
+      ],
+      [
+        0,
+        6,
+        "H_{exp}\\ (Q_{3.6-3.7})"
+      ],
+      [
+        3.5,
+        6,
+        "H_{sim}\\ (Q_{3.8})"
+      ],
+      [
+        0,
+        3,
+        "R_C,\\ \\mathrm{tolerance,\\ loading,\\ noise}"
+      ],
+      [
+        0,
+        0,
+        "\\mathrm{Appendix\\ A,\\ component\\ checks}"
+      ]
+    ],
+    "edges": [
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        4,
+        0
+      ],
+      [
+        5,
+        4
+      ]
+    ]
+  },
+  {
+    "q": "4.1",
+    "title": "RL Setup photograph",
+    "need": "Wire the circuit shown in the instructions. Connect CH1 to Vin and CH2 to Vout; verify the common ground.",
+    "deliver": "Provide an actual breadboard photograph showing components, input, output, and ground connections. An oscilloscope screenshot does not replace this photograph.",
+    "nodes": [
+      [
+        0,
+        6,
+        "Q_{4.1}:\\ \\mathrm{photo}"
+      ],
+      [
+        0,
+        3,
+        "\\mathrm{CH1}=V_{in},\\ \\mathrm{CH2}=V_{out}"
+      ],
+      [
+        -3,
+        0,
+        "R=690\\,\\Omega,\\ L=0.1\\,\\mathrm H"
+      ],
+      [
+        3,
+        0,
+        "\\mathrm{circuit,\\ ground}"
+      ]
+    ],
+    "edges": [
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        3,
+        1
+      ]
+    ]
+  },
+  {
+    "q": "4.2",
+    "title": "RL Filter classification",
+    "need": "Locate the output element, then evaluate the low-frequency and high-frequency limits.",
+    "deliver": "High-pass: at low frequency the inductor approaches a short circuit and Vout approaches zero; at high frequency its impedance increases and Vout approaches Vin.",
+    "nodes": [
+      [
+        0,
+        6,
+        "\\mathrm{high\\ pass}"
+      ],
+      [
+        -3,
+        3,
+        "H(0)=0"
+      ],
+      [
+        3,
+        3,
+        "H(\\infty)=1"
+      ],
+      [
+        0,
+        0,
+        "Z_L=j\\omega L,\\quad V_{out}=V_L"
+      ]
+    ],
+    "edges": [
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ]
+    ]
+  },
+  {
+    "q": "4.3",
+    "title": "RL Transfer function derivation",
+    "need": "Start with the series voltage divider. Derive H, the cutoff angular frequency, the magnitude, and the phase.",
+    "deliver": "Show the voltage divider, algebraic simplification, |H|, arg H, and omega_c. The references to capacitor C in the question are typos; use inductor L.",
+    "nodes": [
+      [
+        0,
+        9,
+        "|H|,\\ \\arg H,\\ \\omega_c=R/L"
+      ],
+      [
+        0,
+        6,
+        "H(j\\omega)=j\\omega L/(R+j\\omega L)"
+      ],
+      [
+        0,
+        3,
+        "H=Z_L/(R+Z_L)"
+      ],
+      [
+        -3,
+        0,
+        "Z_L=j\\omega L"
+      ],
+      [
+        3,
+        0,
+        "R,\\ \\omega"
+      ]
+    ],
+    "edges": [
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        4,
+        2
+      ]
+    ]
+  },
+  {
+    "q": "4.4",
+    "title": "RL Numerical expressions in Hz",
+    "need": "Use Q4.3 and the component values in the original schematic. Substitute omega = 2 pi f.",
+    "deliver": "Provide numerical expressions for magnitude and phase, and the ideal cutoff frequency: 1098.17 Hz. The question should refer to R and L.",
+    "nodes": [
+      [
+        0,
+        6,
+        "|H(f)|,\\ \\arg H(f),\\ f_c=\\omega_c/(2\\pi)"
+      ],
+      [
+        -3,
+        3,
+        "H(j\\omega),\\ \\omega_c\\quad(Q_{4.3})"
+      ],
+      [
+        3,
+        3,
+        "\\omega=2\\pi f"
+      ],
+      [
+        0,
+        0,
+        "R=690\\,\\Omega,\\ L=0.1\\,\\mathrm H"
+      ]
+    ],
+    "edges": [
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        1
+      ]
+    ]
+  },
+  {
+    "q": "4.5",
+    "title": "RL Hand-drawn Bode plots",
+    "need": "Use Q4.3 and the cutoff frequency from Q4.4 to label the frequency axis in Hz.",
+    "deliver": "Draw magnitude and phase by hand. Label fc, -3.01 dB, the cutoff phase, and asymptotes. Include your own hand-drawn work.",
+    "nodes": [
+      [
+        0,
+        6,
+        "G(f),\\ \\phi(f)\\quad\\mathrm{hand\\ sketch}"
+      ],
+      [
+        -3,
+        3,
+        "G=20\\log_{10}|H|"
+      ],
+      [
+        3,
+        3,
+        "\\phi=\\arg H"
+      ],
+      [
+        0,
+        0,
+        "H(j\\omega),\\ f_c\\quad(Q_{4.3},Q_{4.4})"
+      ]
+    ],
+    "edges": [
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ]
+    ]
+  },
+  {
+    "q": "4.6",
+    "title": "RL Measured frequency sweep",
+    "need": "Complete the setup in Q4.1. Start with a 2 Vpp, 1 kHz sine wave, then measure all 11 required frequencies. Add points near cutoff.",
+    "deliver": "For every point, record actual frequency, Vin/Vout in VRMS and Vpp, cursor time difference, phase, and gain. Save a full-screen capture with measurements and cursors visible. Report the measured half-power frequency and stopband slope. Place RL captures in Appendix C; Q4.6 says Appendix B, which conflicts with the final appendix heading.",
+    "nodes": [
+      [
+        0,
+        9,
+        "Q_{4.6}:\\ G,\\phi,f_c,m"
+      ],
+      [
+        -3,
+        6,
+        "G=20\\log_{10}(V_{out,rms}/V_{in,rms})"
+      ],
+      [
+        3,
+        6,
+        "\\phi=-360f\\Delta t"
+      ],
+      [
+        0,
+        3,
+        "f,V_{in,rms},V_{out,rms},V_{pp},\\Delta t"
+      ],
+      [
+        0,
+        0,
+        "Q_{4.1},\\ 2\\,V_{pp},\\ 10\\,Hz\\leq f\\leq20\\,kHz"
+      ]
+    ],
+    "edges": [
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        4,
+        3
+      ]
+    ]
+  },
+  {
+    "q": "4.7",
+    "title": "RL Experimental Bode plots in Excel",
+    "need": "Complete the measured data in Q4.6 first. Use experimental values for these plots.",
+    "deliver": "Use Excel to create gain in dB and phase in degrees versus frequency. Use a logarithmic numeric frequency axis and label the measured cutoff.",
+    "nodes": [
+      [
+        0,
+        6,
+        "G(f),\\ \\phi(f),\\ f_c\\quad\\mathrm{Excel}"
+      ],
+      [
+        -3,
+        3,
+        "(f,G)"
+      ],
+      [
+        3,
+        3,
+        "(f,\\phi)"
+      ],
+      [
+        0,
+        0,
+        "Q_{4.6}:\\ \\mathrm{measured\\ data}"
+      ]
+    ],
+    "edges": [
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ]
+    ]
+  },
+  {
+    "q": "4.8",
+    "title": "RL LTspice AC simulation",
+    "need": "Build a separate simulation from the original schematic. This can proceed in parallel with measurements; verify matching component values.",
+    "deliver": "Use a source with AC amplitude 1 and .ac dec 100 10 20k. Display dB(V(out)/V(in)) and the phase of V(out)/V(in). Save the circuit, settings, and result captures.",
+    "nodes": [
+      [
+        0,
+        6,
+        "G_{sim}(f),\\ \\phi_{sim}(f)"
+      ],
+      [
+        0,
+        3,
+        "H_{sim}=V(out)/V(in)"
+      ],
+      [
+        -3,
+        0,
+        "R=690\\,\\Omega,\\ L=0.1\\,\\mathrm H"
+      ],
+      [
+        3,
+        0,
+        "AC=1,\\ \\mathrm{.ac\\ dec\\ 100\\ 10\\ 20k}"
+      ]
+    ],
+    "edges": [
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        3,
+        1
+      ]
+    ]
+  },
+  {
+    "q": "4.9",
+    "title": "RL Theory simulation and measurement comparison",
+    "need": "Combine Q4.3 through Q4.8. Compare magnitude, phase, cutoff frequency, and stopband trends.",
+    "deliver": "Compare all three results and explain differences. Compare the three Bode plots. An Excel overlay is recommended for clarity. Treat proposed nonideal effects as hypotheses supported by evidence.",
+    "nodes": [
+      [
+        0,
+        9,
+        "Q_{4.9}:\\ \\Delta G,\\Delta\\phi,\\Delta f_c"
+      ],
+      [
+        -3.5,
+        6,
+        "H_{theory}\\ (Q_{4.3-4.5})"
+      ],
+      [
+        0,
+        6,
+        "H_{exp}\\ (Q_{4.6-4.7})"
+      ],
+      [
+        3.5,
+        6,
+        "H_{sim}\\ (Q_{4.8})"
+      ],
+      [
+        0,
+        3,
+        "R_L,\\ \\mathrm{tolerance,\\ loading,\\ noise}"
+      ],
+      [
+        0,
+        0,
+        "\\mathrm{Appendix\\ A,\\ component\\ checks}"
+      ]
+    ],
+    "edges": [
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        4,
+        0
+      ],
+      [
+        5,
+        4
+      ]
+    ]
+  }
+]

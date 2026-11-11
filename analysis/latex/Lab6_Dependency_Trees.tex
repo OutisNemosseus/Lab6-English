@@ -1,0 +1,313 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=20mm]{geometry}
+\usepackage{amsmath,amssymb,tikz,graphicx}
+\usetikzlibrary{arrows.meta,fit}
+\setlength{\parindent}{0pt}
+\begin{document}
+\section*{Q1.1 Group information}
+All three members confirm the group number, leader, member names, and experiment date.\par\medskip
+\textbf{Deliverables}\quad Enter the group number, leader, all member names, date, and full lab title. Leave unknown information pending confirmation.\par\bigskip
+\begin{center}\resizebox{0.97\textwidth}{!}{\begin{tikzpicture}[x=1.6cm,y=.64cm,>=Stealth,every node/.style={font=\small,align=center}]
+\node (n0) at (0,4) {$Q_{1.1}$};
+\node (n1) at (-3,1) {$\mathrm{Group,\ leader}$};
+\node (n2) at (3,1) {$\mathrm{Names,\ date,\ title}$};
+\draw[->] (n1) -- (n0);
+\draw[->] (n2) -- (n0);
+\node[draw,thin,fit=(n0)(n1)(n2),inner sep=9mm] {};
+\end{tikzpicture}}\end{center}
+\vfill\small ENGR 202 Lab 6 | Planning dependencies | Arrows point toward dependent results.
+\newpage
+\section*{Q3.1 RC Setup photograph}
+Wire the circuit shown in the instructions. Connect CH1 to Vin and CH2 to Vout; verify the common ground.\par\medskip
+\textbf{Deliverables}\quad Provide an actual breadboard photograph showing components, input, output, and ground connections. An oscilloscope screenshot does not replace this photograph.\par\bigskip
+\begin{center}\resizebox{0.97\textwidth}{!}{\begin{tikzpicture}[x=1.6cm,y=.64cm,>=Stealth,every node/.style={font=\small,align=center}]
+\node (n0) at (0,6) {$Q_{3.1}:\ \mathrm{photo}$};
+\node (n1) at (0,3) {$\mathrm{CH1}=V_{in},\ \mathrm{CH2}=V_{out}$};
+\node (n2) at (-3,0) {$R=1000\,\Omega,\ C=0.22\,\mu\mathrm F$};
+\node (n3) at (3,0) {$\mathrm{circuit,\ ground}$};
+\draw[->] (n1) -- (n0);
+\draw[->] (n2) -- (n1);
+\draw[->] (n3) -- (n1);
+\node[draw,thin,fit=(n0)(n1)(n2)(n3),inner sep=9mm] {};
+\end{tikzpicture}}\end{center}
+\vfill\small ENGR 202 Lab 6 | Planning dependencies | Arrows point toward dependent results.
+\newpage
+\section*{Q3.2 RC Filter classification}
+Locate the output element, then evaluate the low-frequency and high-frequency limits.\par\medskip
+\textbf{Deliverables}\quad Low-pass: at low frequency the capacitor approaches an open circuit and Vout approaches Vin; at high frequency it approaches a short circuit and Vout approaches zero.\par\bigskip
+\begin{center}\resizebox{0.97\textwidth}{!}{\begin{tikzpicture}[x=1.6cm,y=.64cm,>=Stealth,every node/.style={font=\small,align=center}]
+\node (n0) at (0,6) {$\mathrm{low\ pass}$};
+\node (n1) at (-3,3) {$H(0)=1$};
+\node (n2) at (3,3) {$H(\infty)=0$};
+\node (n3) at (0,0) {$Z_C=1/(j\omega C),\quad V_{out}=V_C$};
+\draw[->] (n1) -- (n0);
+\draw[->] (n2) -- (n0);
+\draw[->] (n3) -- (n1);
+\draw[->] (n3) -- (n2);
+\node[draw,thin,fit=(n0)(n1)(n2)(n3),inner sep=9mm] {};
+\end{tikzpicture}}\end{center}
+\vfill\small ENGR 202 Lab 6 | Planning dependencies | Arrows point toward dependent results.
+\newpage
+\section*{Q3.3 RC Transfer function derivation}
+Start with the series voltage divider. Derive H, the cutoff angular frequency, the magnitude, and the phase.\par\medskip
+\textbf{Deliverables}\quad Show the voltage divider, algebraic simplification, |H|, arg H, and omega\_c.\par\bigskip
+\begin{center}\resizebox{0.97\textwidth}{!}{\begin{tikzpicture}[x=1.6cm,y=.64cm,>=Stealth,every node/.style={font=\small,align=center}]
+\node (n0) at (0,9) {$|H|,\ \arg H,\ \omega_c=1/(RC)$};
+\node (n1) at (0,6) {$H(j\omega)=1/(1+j\omega RC)$};
+\node (n2) at (0,3) {$H=Z_C/(R+Z_C)$};
+\node (n3) at (-3,0) {$Z_C=1/(j\omega C)$};
+\node (n4) at (3,0) {$R,\ \omega$};
+\draw[->] (n1) -- (n0);
+\draw[->] (n2) -- (n1);
+\draw[->] (n3) -- (n2);
+\draw[->] (n4) -- (n2);
+\node[draw,thin,fit=(n0)(n1)(n2)(n3)(n4),inner sep=9mm] {};
+\end{tikzpicture}}\end{center}
+\vfill\small ENGR 202 Lab 6 | Planning dependencies | Arrows point toward dependent results.
+\newpage
+\section*{Q3.4 RC Numerical expressions in Hz}
+Use Q3.3 and the component values in the original schematic. Substitute omega = 2 pi f.\par\medskip
+\textbf{Deliverables}\quad Provide numerical expressions for magnitude and phase, and the ideal cutoff frequency: 723.43 Hz.\par\bigskip
+\begin{center}\resizebox{0.97\textwidth}{!}{\begin{tikzpicture}[x=1.6cm,y=.64cm,>=Stealth,every node/.style={font=\small,align=center}]
+\node (n0) at (0,6) {$|H(f)|,\ \arg H(f),\ f_c=\omega_c/(2\pi)$};
+\node (n1) at (-3,3) {$H(j\omega),\ \omega_c\quad(Q_{3.3})$};
+\node (n2) at (3,3) {$\omega=2\pi f$};
+\node (n3) at (0,0) {$R=1000\,\Omega,\ C=0.22\,\mu\mathrm F$};
+\draw[->] (n1) -- (n0);
+\draw[->] (n2) -- (n0);
+\draw[->] (n3) -- (n1);
+\node[draw,thin,fit=(n0)(n1)(n2)(n3),inner sep=9mm] {};
+\end{tikzpicture}}\end{center}
+\vfill\small ENGR 202 Lab 6 | Planning dependencies | Arrows point toward dependent results.
+\newpage
+\section*{Q3.5 RC Hand-drawn Bode plots}
+Use Q3.3 and the cutoff frequency from Q3.4 to label the frequency axis in Hz.\par\medskip
+\textbf{Deliverables}\quad Draw magnitude and phase by hand. Label fc, -3.01 dB, the cutoff phase, and asymptotes. Include your own hand-drawn work.\par\bigskip
+\begin{center}\resizebox{0.97\textwidth}{!}{\begin{tikzpicture}[x=1.6cm,y=.64cm,>=Stealth,every node/.style={font=\small,align=center}]
+\node (n0) at (0,6) {$G(f),\ \phi(f)\quad\mathrm{hand\ sketch}$};
+\node (n1) at (-3,3) {$G=20\log_{10}|H|$};
+\node (n2) at (3,3) {$\phi=\arg H$};
+\node (n3) at (0,0) {$H(j\omega),\ f_c\quad(Q_{3.3},Q_{3.4})$};
+\draw[->] (n1) -- (n0);
+\draw[->] (n2) -- (n0);
+\draw[->] (n3) -- (n1);
+\draw[->] (n3) -- (n2);
+\node[draw,thin,fit=(n0)(n1)(n2)(n3),inner sep=9mm] {};
+\end{tikzpicture}}\end{center}
+\vfill\small ENGR 202 Lab 6 | Planning dependencies | Arrows point toward dependent results.
+\newpage
+\section*{Q3.6 RC Measured frequency sweep}
+Complete the setup in Q3.1. Start with a 2 Vpp, 1 kHz sine wave, then measure all 11 required frequencies. Add points near cutoff.\par\medskip
+\textbf{Deliverables}\quad For every point, record actual frequency, Vin/Vout in VRMS and Vpp, cursor time difference, phase, and gain. Save a full-screen capture with measurements and cursors visible. Report the measured half-power frequency and stopband slope. Place RC captures in Appendix B.\par\bigskip
+\begin{center}\resizebox{0.97\textwidth}{!}{\begin{tikzpicture}[x=1.6cm,y=.64cm,>=Stealth,every node/.style={font=\small,align=center}]
+\node (n0) at (0,9) {$Q_{3.6}:\ G,\phi,f_c,m$};
+\node (n1) at (-3,6) {$G=20\log_{10}(V_{out,rms}/V_{in,rms})$};
+\node (n2) at (3,6) {$\phi=-360f\Delta t$};
+\node (n3) at (0,3) {$f,V_{in,rms},V_{out,rms},V_{pp},\Delta t$};
+\node (n4) at (0,0) {$Q_{3.1},\ 2\,V_{pp},\ 10\,Hz\leq f\leq20\,kHz$};
+\draw[->] (n1) -- (n0);
+\draw[->] (n2) -- (n0);
+\draw[->] (n3) -- (n1);
+\draw[->] (n3) -- (n2);
+\draw[->] (n4) -- (n3);
+\node[draw,thin,fit=(n0)(n1)(n2)(n3)(n4),inner sep=9mm] {};
+\end{tikzpicture}}\end{center}
+\vfill\small ENGR 202 Lab 6 | Planning dependencies | Arrows point toward dependent results.
+\newpage
+\section*{Q3.7 RC Experimental Bode plots in Excel}
+Complete the measured data in Q3.6 first. Use experimental values for these plots.\par\medskip
+\textbf{Deliverables}\quad Use Excel to create gain in dB and phase in degrees versus frequency. Use a logarithmic numeric frequency axis and label the measured cutoff.\par\bigskip
+\begin{center}\resizebox{0.97\textwidth}{!}{\begin{tikzpicture}[x=1.6cm,y=.64cm,>=Stealth,every node/.style={font=\small,align=center}]
+\node (n0) at (0,6) {$G(f),\ \phi(f),\ f_c\quad\mathrm{Excel}$};
+\node (n1) at (-3,3) {$(f,G)$};
+\node (n2) at (3,3) {$(f,\phi)$};
+\node (n3) at (0,0) {$Q_{3.6}:\ \mathrm{measured\ data}$};
+\draw[->] (n1) -- (n0);
+\draw[->] (n2) -- (n0);
+\draw[->] (n3) -- (n1);
+\draw[->] (n3) -- (n2);
+\node[draw,thin,fit=(n0)(n1)(n2)(n3),inner sep=9mm] {};
+\end{tikzpicture}}\end{center}
+\vfill\small ENGR 202 Lab 6 | Planning dependencies | Arrows point toward dependent results.
+\newpage
+\section*{Q3.8 RC LTspice AC simulation}
+Build a separate simulation from the original schematic. This can proceed in parallel with measurements; verify matching component values.\par\medskip
+\textbf{Deliverables}\quad Use a source with AC amplitude 1 and .ac dec 100 10 20k. Display dB(V(out)/V(in)) and the phase of V(out)/V(in). Save the circuit, settings, and result captures.\par\bigskip
+\begin{center}\resizebox{0.97\textwidth}{!}{\begin{tikzpicture}[x=1.6cm,y=.64cm,>=Stealth,every node/.style={font=\small,align=center}]
+\node (n0) at (0,6) {$G_{sim}(f),\ \phi_{sim}(f)$};
+\node (n1) at (0,3) {$H_{sim}=V(out)/V(in)$};
+\node (n2) at (-3,0) {$R=1000\,\Omega,\ C=0.22\,\mu\mathrm F$};
+\node (n3) at (3,0) {$AC=1,\ \mathrm{.ac\ dec\ 100\ 10\ 20k}$};
+\draw[->] (n1) -- (n0);
+\draw[->] (n2) -- (n1);
+\draw[->] (n3) -- (n1);
+\node[draw,thin,fit=(n0)(n1)(n2)(n3),inner sep=9mm] {};
+\end{tikzpicture}}\end{center}
+\vfill\small ENGR 202 Lab 6 | Planning dependencies | Arrows point toward dependent results.
+\newpage
+\section*{Q3.9 RC Theory simulation and measurement comparison}
+Combine Q3.3 through Q3.8. Compare magnitude, phase, cutoff frequency, and stopband trends.\par\medskip
+\textbf{Deliverables}\quad Compare all three results and explain differences. The instructions explicitly require theoretical and measured magnitude curves on the same Excel chart. Also check phase. Treat proposed nonideal effects as hypotheses supported by evidence.\par\bigskip
+\begin{center}\resizebox{0.97\textwidth}{!}{\begin{tikzpicture}[x=1.6cm,y=.64cm,>=Stealth,every node/.style={font=\small,align=center}]
+\node (n0) at (0,9) {$Q_{3.9}:\ \Delta G,\Delta\phi,\Delta f_c$};
+\node (n1) at (-3.5,6) {$H_{theory}\ (Q_{3.3-3.5})$};
+\node (n2) at (0,6) {$H_{exp}\ (Q_{3.6-3.7})$};
+\node (n3) at (3.5,6) {$H_{sim}\ (Q_{3.8})$};
+\node (n4) at (0,3) {$R_C,\ \mathrm{tolerance,\ loading,\ noise}$};
+\node (n5) at (0,0) {$\mathrm{Appendix\ A,\ component\ checks}$};
+\draw[->] (n1) -- (n0);
+\draw[->] (n2) -- (n0);
+\draw[->] (n3) -- (n0);
+\draw[->] (n4.east) -- ++(3,0) |- (n0.east);
+\draw[->] (n5) -- (n4);
+\node[draw,thin,fit=(n0)(n1)(n2)(n3)(n4)(n5),inner sep=9mm] {};
+\end{tikzpicture}}\end{center}
+\vfill\small ENGR 202 Lab 6 | Planning dependencies | Arrows point toward dependent results.
+\newpage
+\section*{Q4.1 RL Setup photograph}
+Wire the circuit shown in the instructions. Connect CH1 to Vin and CH2 to Vout; verify the common ground.\par\medskip
+\textbf{Deliverables}\quad Provide an actual breadboard photograph showing components, input, output, and ground connections. An oscilloscope screenshot does not replace this photograph.\par\bigskip
+\begin{center}\resizebox{0.97\textwidth}{!}{\begin{tikzpicture}[x=1.6cm,y=.64cm,>=Stealth,every node/.style={font=\small,align=center}]
+\node (n0) at (0,6) {$Q_{4.1}:\ \mathrm{photo}$};
+\node (n1) at (0,3) {$\mathrm{CH1}=V_{in},\ \mathrm{CH2}=V_{out}$};
+\node (n2) at (-3,0) {$R=690\,\Omega,\ L=0.1\,\mathrm H$};
+\node (n3) at (3,0) {$\mathrm{circuit,\ ground}$};
+\draw[->] (n1) -- (n0);
+\draw[->] (n2) -- (n1);
+\draw[->] (n3) -- (n1);
+\node[draw,thin,fit=(n0)(n1)(n2)(n3),inner sep=9mm] {};
+\end{tikzpicture}}\end{center}
+\vfill\small ENGR 202 Lab 6 | Planning dependencies | Arrows point toward dependent results.
+\newpage
+\section*{Q4.2 RL Filter classification}
+Locate the output element, then evaluate the low-frequency and high-frequency limits.\par\medskip
+\textbf{Deliverables}\quad High-pass: at low frequency the inductor approaches a short circuit and Vout approaches zero; at high frequency its impedance increases and Vout approaches Vin.\par\bigskip
+\begin{center}\resizebox{0.97\textwidth}{!}{\begin{tikzpicture}[x=1.6cm,y=.64cm,>=Stealth,every node/.style={font=\small,align=center}]
+\node (n0) at (0,6) {$\mathrm{high\ pass}$};
+\node (n1) at (-3,3) {$H(0)=0$};
+\node (n2) at (3,3) {$H(\infty)=1$};
+\node (n3) at (0,0) {$Z_L=j\omega L,\quad V_{out}=V_L$};
+\draw[->] (n1) -- (n0);
+\draw[->] (n2) -- (n0);
+\draw[->] (n3) -- (n1);
+\draw[->] (n3) -- (n2);
+\node[draw,thin,fit=(n0)(n1)(n2)(n3),inner sep=9mm] {};
+\end{tikzpicture}}\end{center}
+\vfill\small ENGR 202 Lab 6 | Planning dependencies | Arrows point toward dependent results.
+\newpage
+\section*{Q4.3 RL Transfer function derivation}
+Start with the series voltage divider. Derive H, the cutoff angular frequency, the magnitude, and the phase.\par\medskip
+\textbf{Deliverables}\quad Show the voltage divider, algebraic simplification, |H|, arg H, and omega\_c. The references to capacitor C in the question are typos; use inductor L.\par\bigskip
+\begin{center}\resizebox{0.97\textwidth}{!}{\begin{tikzpicture}[x=1.6cm,y=.64cm,>=Stealth,every node/.style={font=\small,align=center}]
+\node (n0) at (0,9) {$|H|,\ \arg H,\ \omega_c=R/L$};
+\node (n1) at (0,6) {$H(j\omega)=j\omega L/(R+j\omega L)$};
+\node (n2) at (0,3) {$H=Z_L/(R+Z_L)$};
+\node (n3) at (-3,0) {$Z_L=j\omega L$};
+\node (n4) at (3,0) {$R,\ \omega$};
+\draw[->] (n1) -- (n0);
+\draw[->] (n2) -- (n1);
+\draw[->] (n3) -- (n2);
+\draw[->] (n4) -- (n2);
+\node[draw,thin,fit=(n0)(n1)(n2)(n3)(n4),inner sep=9mm] {};
+\end{tikzpicture}}\end{center}
+\vfill\small ENGR 202 Lab 6 | Planning dependencies | Arrows point toward dependent results.
+\newpage
+\section*{Q4.4 RL Numerical expressions in Hz}
+Use Q4.3 and the component values in the original schematic. Substitute omega = 2 pi f.\par\medskip
+\textbf{Deliverables}\quad Provide numerical expressions for magnitude and phase, and the ideal cutoff frequency: 1098.17 Hz. The question should refer to R and L.\par\bigskip
+\begin{center}\resizebox{0.97\textwidth}{!}{\begin{tikzpicture}[x=1.6cm,y=.64cm,>=Stealth,every node/.style={font=\small,align=center}]
+\node (n0) at (0,6) {$|H(f)|,\ \arg H(f),\ f_c=\omega_c/(2\pi)$};
+\node (n1) at (-3,3) {$H(j\omega),\ \omega_c\quad(Q_{4.3})$};
+\node (n2) at (3,3) {$\omega=2\pi f$};
+\node (n3) at (0,0) {$R=690\,\Omega,\ L=0.1\,\mathrm H$};
+\draw[->] (n1) -- (n0);
+\draw[->] (n2) -- (n0);
+\draw[->] (n3) -- (n1);
+\node[draw,thin,fit=(n0)(n1)(n2)(n3),inner sep=9mm] {};
+\end{tikzpicture}}\end{center}
+\vfill\small ENGR 202 Lab 6 | Planning dependencies | Arrows point toward dependent results.
+\newpage
+\section*{Q4.5 RL Hand-drawn Bode plots}
+Use Q4.3 and the cutoff frequency from Q4.4 to label the frequency axis in Hz.\par\medskip
+\textbf{Deliverables}\quad Draw magnitude and phase by hand. Label fc, -3.01 dB, the cutoff phase, and asymptotes. Include your own hand-drawn work.\par\bigskip
+\begin{center}\resizebox{0.97\textwidth}{!}{\begin{tikzpicture}[x=1.6cm,y=.64cm,>=Stealth,every node/.style={font=\small,align=center}]
+\node (n0) at (0,6) {$G(f),\ \phi(f)\quad\mathrm{hand\ sketch}$};
+\node (n1) at (-3,3) {$G=20\log_{10}|H|$};
+\node (n2) at (3,3) {$\phi=\arg H$};
+\node (n3) at (0,0) {$H(j\omega),\ f_c\quad(Q_{4.3},Q_{4.4})$};
+\draw[->] (n1) -- (n0);
+\draw[->] (n2) -- (n0);
+\draw[->] (n3) -- (n1);
+\draw[->] (n3) -- (n2);
+\node[draw,thin,fit=(n0)(n1)(n2)(n3),inner sep=9mm] {};
+\end{tikzpicture}}\end{center}
+\vfill\small ENGR 202 Lab 6 | Planning dependencies | Arrows point toward dependent results.
+\newpage
+\section*{Q4.6 RL Measured frequency sweep}
+Complete the setup in Q4.1. Start with a 2 Vpp, 1 kHz sine wave, then measure all 11 required frequencies. Add points near cutoff.\par\medskip
+\textbf{Deliverables}\quad For every point, record actual frequency, Vin/Vout in VRMS and Vpp, cursor time difference, phase, and gain. Save a full-screen capture with measurements and cursors visible. Report the measured half-power frequency and stopband slope. Place RL captures in Appendix C; Q4.6 says Appendix B, which conflicts with the final appendix heading.\par\bigskip
+\begin{center}\resizebox{0.97\textwidth}{!}{\begin{tikzpicture}[x=1.6cm,y=.64cm,>=Stealth,every node/.style={font=\small,align=center}]
+\node (n0) at (0,9) {$Q_{4.6}:\ G,\phi,f_c,m$};
+\node (n1) at (-3,6) {$G=20\log_{10}(V_{out,rms}/V_{in,rms})$};
+\node (n2) at (3,6) {$\phi=-360f\Delta t$};
+\node (n3) at (0,3) {$f,V_{in,rms},V_{out,rms},V_{pp},\Delta t$};
+\node (n4) at (0,0) {$Q_{4.1},\ 2\,V_{pp},\ 10\,Hz\leq f\leq20\,kHz$};
+\draw[->] (n1) -- (n0);
+\draw[->] (n2) -- (n0);
+\draw[->] (n3) -- (n1);
+\draw[->] (n3) -- (n2);
+\draw[->] (n4) -- (n3);
+\node[draw,thin,fit=(n0)(n1)(n2)(n3)(n4),inner sep=9mm] {};
+\end{tikzpicture}}\end{center}
+\vfill\small ENGR 202 Lab 6 | Planning dependencies | Arrows point toward dependent results.
+\newpage
+\section*{Q4.7 RL Experimental Bode plots in Excel}
+Complete the measured data in Q4.6 first. Use experimental values for these plots.\par\medskip
+\textbf{Deliverables}\quad Use Excel to create gain in dB and phase in degrees versus frequency. Use a logarithmic numeric frequency axis and label the measured cutoff.\par\bigskip
+\begin{center}\resizebox{0.97\textwidth}{!}{\begin{tikzpicture}[x=1.6cm,y=.64cm,>=Stealth,every node/.style={font=\small,align=center}]
+\node (n0) at (0,6) {$G(f),\ \phi(f),\ f_c\quad\mathrm{Excel}$};
+\node (n1) at (-3,3) {$(f,G)$};
+\node (n2) at (3,3) {$(f,\phi)$};
+\node (n3) at (0,0) {$Q_{4.6}:\ \mathrm{measured\ data}$};
+\draw[->] (n1) -- (n0);
+\draw[->] (n2) -- (n0);
+\draw[->] (n3) -- (n1);
+\draw[->] (n3) -- (n2);
+\node[draw,thin,fit=(n0)(n1)(n2)(n3),inner sep=9mm] {};
+\end{tikzpicture}}\end{center}
+\vfill\small ENGR 202 Lab 6 | Planning dependencies | Arrows point toward dependent results.
+\newpage
+\section*{Q4.8 RL LTspice AC simulation}
+Build a separate simulation from the original schematic. This can proceed in parallel with measurements; verify matching component values.\par\medskip
+\textbf{Deliverables}\quad Use a source with AC amplitude 1 and .ac dec 100 10 20k. Display dB(V(out)/V(in)) and the phase of V(out)/V(in). Save the circuit, settings, and result captures.\par\bigskip
+\begin{center}\resizebox{0.97\textwidth}{!}{\begin{tikzpicture}[x=1.6cm,y=.64cm,>=Stealth,every node/.style={font=\small,align=center}]
+\node (n0) at (0,6) {$G_{sim}(f),\ \phi_{sim}(f)$};
+\node (n1) at (0,3) {$H_{sim}=V(out)/V(in)$};
+\node (n2) at (-3,0) {$R=690\,\Omega,\ L=0.1\,\mathrm H$};
+\node (n3) at (3,0) {$AC=1,\ \mathrm{.ac\ dec\ 100\ 10\ 20k}$};
+\draw[->] (n1) -- (n0);
+\draw[->] (n2) -- (n1);
+\draw[->] (n3) -- (n1);
+\node[draw,thin,fit=(n0)(n1)(n2)(n3),inner sep=9mm] {};
+\end{tikzpicture}}\end{center}
+\vfill\small ENGR 202 Lab 6 | Planning dependencies | Arrows point toward dependent results.
+\newpage
+\section*{Q4.9 RL Theory simulation and measurement comparison}
+Combine Q4.3 through Q4.8. Compare magnitude, phase, cutoff frequency, and stopband trends.\par\medskip
+\textbf{Deliverables}\quad Compare all three results and explain differences. Compare the three Bode plots. An Excel overlay is recommended for clarity. Treat proposed nonideal effects as hypotheses supported by evidence.\par\bigskip
+\begin{center}\resizebox{0.97\textwidth}{!}{\begin{tikzpicture}[x=1.6cm,y=.64cm,>=Stealth,every node/.style={font=\small,align=center}]
+\node (n0) at (0,9) {$Q_{4.9}:\ \Delta G,\Delta\phi,\Delta f_c$};
+\node (n1) at (-3.5,6) {$H_{theory}\ (Q_{4.3-4.5})$};
+\node (n2) at (0,6) {$H_{exp}\ (Q_{4.6-4.7})$};
+\node (n3) at (3.5,6) {$H_{sim}\ (Q_{4.8})$};
+\node (n4) at (0,3) {$R_L,\ \mathrm{tolerance,\ loading,\ noise}$};
+\node (n5) at (0,0) {$\mathrm{Appendix\ A,\ component\ checks}$};
+\draw[->] (n1) -- (n0);
+\draw[->] (n2) -- (n0);
+\draw[->] (n3) -- (n0);
+\draw[->] (n4.east) -- ++(3,0) |- (n0.east);
+\draw[->] (n5) -- (n4);
+\node[draw,thin,fit=(n0)(n1)(n2)(n3)(n4)(n5),inner sep=9mm] {};
+\end{tikzpicture}}\end{center}
+\vfill\small ENGR 202 Lab 6 | Planning dependencies | Arrows point toward dependent results.
+\end{document}
